@@ -1,7 +1,9 @@
+import java.util.Stack;
+
 public class PalindromeNumber {
     
     public static void main(String[] args) {
-        int num = 121;
+        int num = 1212;
         boolean isPal = PalindromeNumber.isPalindrome(num);
 
         if(isPal)
@@ -9,6 +11,24 @@ public class PalindromeNumber {
         else
             System.out.println(num + " is not a palindrome");
 
+    }
+
+    public static boolean isPalindrome(int x) {
+
+        if(x < 0) return false;
+        
+        Stack<Character> stack = new Stack<>();
+        String num = Integer.toString(x);
+        String rev = "";
+
+        for(char c : num.toCharArray()){
+            System.out.println(c);
+            stack.push(c);
+        }
+        while (!stack.isEmpty()) {
+            rev += stack.pop();
+        }
+        return num.equals(rev);
     }
 
     //Converting to a string 
@@ -34,18 +54,18 @@ public class PalindromeNumber {
     // }
 
     //Using only nums
-    public static boolean isPalindrome(int x) {
+    // public static boolean isPalindrome(int x) {
         
-        int num = x;
-        int reversed = 0;
-        int digit;
+    //     int num = x;
+    //     int reversed = 0;
+    //     int digit;
 
-        while(num != 0){
-            digit = num % 10;
-            reversed = (reversed * 10) + digit;
-            num /= 10;
-        }
-        return reversed == x;
+    //     while(num != 0){
+    //         digit = num % 10;
+    //         reversed = (reversed * 10) + digit;
+    //         num /= 10;
+    //     }
+    //     return reversed == x;
 
-    }
+    // }
 }
